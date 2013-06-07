@@ -69,7 +69,7 @@ h1 {
 DIV#indexPage{background: center repeat-y url(../img/body_bg.png);height:0;}
 DIV#indexPage .ui-content{background-position:top; background-repeat:no-repeat;height:100%;padding: 0;}
 TABLE.flagsTable{width:100%;height:100%;}
-@media screen and(orientation:portrait){
+/*@media screen and(orientation:portrait){
   DIV#indexPage TABLE.flagsTable.landscape{display:none;}
   TABLE.flagsTable TD{vertical-align:bottom;text-align:center;height:50%;}
   DIV#indexPage DIV.flags{width:396px;margin:0 auto;}
@@ -83,7 +83,7 @@ TABLE.flagsTable{width:100%;height:100%;}
 }
 
 @media screen and(orientation:landscape){
-  DIV#indexPage TABLE.flagsTable.portrait{display:none;}
+  DIV#indexPage TABLE.flagsTable.portrait{display:none;}*/
   TABLE.flagsTable TD{vertical-align:middle;text-align:center;height:100%;width:40%;}
   TABLE.flagsTable TD.flagsCell{width:25%;}
   DIV#indexPage DIV.flags{}
@@ -94,7 +94,7 @@ TABLE.flagsTable{width:100%;height:100%;}
   DIV#indexPage div.flags a.lng.En{background-position:-122px -426px;}
   DIV#indexPage div.flags a.lng.Fr{background-position:-61px -426px;}
   DIV#indexPage div.flags a.lng.Sk{background-position:0px -426px;}
-}
+/*}*/
 
 
 
