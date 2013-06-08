@@ -67,17 +67,35 @@ h1 {
 }
 
 DIV#indexPage{background: center repeat-y url(../img/body_bg.png);}
-DIV#indexPage .ui-content{background-position:top; background-repeat:no-repeat;border:1px solid green;}
-DIV#indexPage TABLE{width:100%;height:100%;}
-DIV#indexPage TABLE.portrait{display:none;}
-  DIV#indexPage DIV.flags{}
-  DIV#indexPage div.flags a.lng{display:block;background:url(../img/languages_icons.png) no-repeat;width:60px;height:87px;margin:0 auto 0 auto;}
-  DIV#indexPage div.flags a.lng.En.hover{background-position:-122px -339px;}
-  DIV#indexPage div.flags a.lng.Fr.hover{background-position:-61px -339px;}
-  DIV#indexPage div.flags a.lng.Sk.hover{background-position:0px -339px;}
-  DIV#indexPage div.flags a.lng.En{background-position:-122px -426px;}
-  DIV#indexPage div.flags a.lng.Fr{background-position:-61px -426px;}
-  DIV#indexPage div.flags a.lng.Sk{background-position:0px -426px;}
+DIV#indexPage .ui-content{background-repeat:no-repeat;}
+DIV#indexPage TABLE{width:100%;height:100%;border-collapse:collapse;}
+DIV#indexPage DIV.flags{}
+  
+@media screen and(orientation:portrait){
+	DIV#indexPage .ui-content{background-position:top center;background-image: url(../img/index_bg_480x854.png);}
+  	DIV#indexPage TABLE.flagsTable.landscape{display:none;}
+  	TABLE.flagsTable TD{vertical-align:bottom;text-align:center;height:50%;}
+  	DIV#indexPage DIV.flags{margin:0 auto;width:210px;}
+  	DIV#indexPage div.flags a.lng{float:left;display:block;margin-right:10px;}
+}
+
+@media screen and(orientation:landscape){
+	DIV#indexPage .ui-content{background-position:center center;background-image: url(../img/index_bg_480_landscape.png);}
+  	DIV#indexPage TABLE.flagsTable.portrait{display:none;}
+  	TABLE.flagsTable TD{vertical-align:middle;text-align:center;height:100%;width:80%;}
+  	TABLE.flagsTable TD.flagsCell{width:20%;}
+  	DIV#indexPage DIV.flags{}
+  	DIV#indexPage div.flags a.lng{display:block;margin:0 auto 0 auto;}
+}
+  
+  DIV#indexPage DIV.flags{margin:0 auto;}
+  DIV#indexPage div.flags a.lng{display:block;background:url(../img/languages_icons.png) no-repeat;width:60px;height:87px;}
+  DIV#indexPage div.flags a.lng.En.hover{background-position:-61px -349px;}
+  DIV#indexPage div.flags a.lng.Fr.hover{background-position:-121px -349px;}
+  DIV#indexPage div.flags a.lng.Sk.hover{background-position:0px -349px;}
+  DIV#indexPage div.flags a.lng.En{background-position:-61px -436px;}
+  DIV#indexPage div.flags a.lng.Fr{background-position:-121px -436px;}
+  DIV#indexPage div.flags a.lng.Sk{background-position:0px -436px;}
 /*}*/
 
 
