@@ -274,3 +274,12 @@ $(window).bind('resize orientationchange pageshow', function (event) {
 	window.scrollTo(1, 0);
 	reSizeDiv();
 });
+
+$(document).on('pagebeforeshow', '#indexPage', function(){ 
+    $(document).on('vmouseover', 'a.lng' ,function(){
+        $(this).addClass("hover");
+    });
+	$(document).on('vmouseout', 'a.lng' ,function(){
+        $(this).removeClass("hover");
+    });
+});
