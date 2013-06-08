@@ -1,8 +1,12 @@
 var app = {
-
+	appVersionCode: "",
+	appappVersionName: "",
     initialize: function() {
+		this.appVersionCode = window.plugins.version.getVersionCode();
+		this.appVersionName = window.plugins.version.getVersionName();
+		
+		this.showAlert('Version code: ' + this.appVersionCode + "Version name: " + this.appVersionName, 'Info');
 
-		this.showAlert('Store Initialized', 'Info');
 
     },
 
