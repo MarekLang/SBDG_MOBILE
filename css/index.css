@@ -69,6 +69,7 @@ h1 {
 DIV#indexPage{background: center repeat-y url(../img/body_bg.png);}
 DIV#indexPage .ui-content{background-repeat:no-repeat;}
 DIV#indexPage TABLE{width:100%;height:100%;border-collapse:collapse;}
+DIV#indexPage TABLE TD{vertical-align:middle;}
 DIV#indexPage DIV.flags{}
   
 @media screen and(orientation:portrait){
