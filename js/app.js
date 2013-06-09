@@ -1,13 +1,8 @@
 var app = {
-	appVersionCode: "",
-	appappVersionName: "",
+
     initialize: function() {
-		this.appVersionCode = window.plugins.version.getVersionCode();
-		this.appVersionName = window.plugins.version.getVersionName();
 		
-		this.showAlert('Version code: ' + this.appVersionCode + "Version name: " + this.appVersionName, 'Info');
-
-
+		this.showAlert('Version code: 2.0.20', 'Info');
     },
 
 	showAlert: function (message, title) {
