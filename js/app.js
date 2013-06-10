@@ -27,7 +27,7 @@ var App	 = {
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			listItemID = "lstitem_" + i;
-			$("#chartsList").append("<li id='" + listItemID + "'><a href='diagnose.html'>"
+			$("#chartsList").append("<li id='" + listItemID + "'><a href='index.html#diagnosePage'>"
 				+ "<h4>" + chart["T" + App.selectedLng] + "</h4>"
 				+ "<p>" + chart["ST" + App.selectedLng] + "</p></a></li>");
 	
@@ -40,29 +40,29 @@ var App	 = {
 	
 	"StepYES": function() {
 		console.log("STEP YES");
-		prevStep = selectedStep;
-		loadChartStep(dt.Steps[selectedStep.STP1]);
+		App.prevStep = App.selectedStep;
+		App.loadChartStep(App.dt.Steps[App.selectedStep.STP1]);
 	},
 
 	"StepNO": function() {
 		console.log("STEP NO");
-		prevStep = selectedStep;
-		loadChartStep(dt.Steps[selectedStep.STP0]);
+		App.prevStep = App.selectedStep;
+		App.loadChartStep(App.dt.Steps[App.selectedStep.STP0]);
 	},
 
 	"StepBACK": function() {
 		console.log("STEP BACK");
-		prevStep = selectedStep.prevStep.prevStep;
-		loadChartStep(selectedStep.prevStep);
+		App.prevStep = App.selectedStep.prevStep.prevStep;
+		App.loadChartStep(App.selectedStep.prevStep);
 	},
 
 	"loadChartStep": function(step) {
 		console.log("LOAD CHART STEP");
-        $('#chartCathegory').text(selectedChart["C" + selectedLng]);
-		$('#repoName').text(step["TXT" + selectedLng]);
-		selectedStep = step;
+        $('#chartCathegory').text(App.selectedChart["C" + App.selectedLng]);
+		$('#repoName').text(step["TXT" + App.selectedLng]);
+		App.selectedStep = step;
 		//alert(selectedStep.STP0 + ' - ' + selectedStep.STP1);
-		isfirst = ((dt.Steps[selectedChart.FIRSTSTEP] == step));
+		isfirst = ((App.dt.Steps[App.selectedChart.FIRSTSTEP] == step));
 		if(step.STP0 == 0 && step.STP1 == 0)
 		{
 			$('#btnYES').closest('.ui-btn').hide();
@@ -75,12 +75,12 @@ var App	 = {
 		}
 		if(isfirst)
 		{
-			selectedStep.prevStep = 0;
+			App.selectedStep.prevStep = 0;
 			$('#btnPREV').closest('.ui-btn').hide();
 		}
 		else
 		{
-			selectedStep.prevStep = prevStep;
+			App.selectedStep.prevStep = App.prevStep;
 			$('#btnPREV').closest('.ui-btn').show();
 		}
 	},
@@ -150,7 +150,7 @@ var App	 = {
 			App.showCharts();
 		});
 		$('#diagnosePage').bind('pageshow', function (event) {
-			App.loadChartStep(dt.Steps[selectedChart.FIRSTSTEP], true);
+			App.loadChartStep(App.dt.Steps[App.selectedChart.FIRSTSTEP], true);
 		});
 		
 	},
