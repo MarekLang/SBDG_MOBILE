@@ -9,7 +9,7 @@ var App	 = {
 		console.log("======================== BL ========================");
 		console.log("AJAX DATA REQUEST");
 		$.ajax({ 
-			url: "http://www.sebaadiagnoza.sk/Services/data.svc/GetData", 
+			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
 			error: function (request, status, error) { 
 				console.log("RESULT: UNSUCCESFULL!");
