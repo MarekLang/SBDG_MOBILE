@@ -9,16 +9,20 @@ var App	 = {
 		console.log("======================== BL ========================");
 		console.log("AJAX DATA REQUEST");
 		$.ajax({ 
-			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
+			url: "http://www.sebaadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
+			error: function (request, status, error) { 
+				console.log("RESULT: UNSUCCESFULL!");
+				PGproxy.navigator.notification.alert(request.responseText + " - " + status + " - " + error);
+				},
 			success: function (data) {
 				console.log("RESULT: SUCCESFULL");
 				PGproxy.navigator.splashscreen.hide();
 				App.dt = data;
 				$("#indexPage .flags a").removeClass('ui-disabled');
+				PGproxy.navigator.notification.alert('Dáta načítané');
 				//$(".ui-loader").removeClass("ui-loading");
-				
-			}
+				}
 		});
 	},
 
@@ -126,6 +130,14 @@ var App	 = {
     "testing_on_desktop": true,
  	"callbacks": {
     	"onDeviceReady": function () {
+			var mql = window.matchMedia("(orientation: portrait)");
+			// If there are matches, we're in portrait
+			if(mql.matches) {  
+				PGproxy.navigator.notification.alert('Portrait orientation');
+			} else {  
+				PGproxy.navigator.notification.alert('Landscape orientation');
+			}
+			
 			App.loadData();
     	},
         "onPageInit": function () {
