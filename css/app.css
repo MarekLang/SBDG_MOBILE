@@ -70,3 +70,7 @@ DIV#indexPage DIV.flags{}
 /* DIAGNOSE PAGE */
 DIV#diagnosePage {background: center repeat-y url(../img/body_bg.png);}
 DIV#diagnosePage H1#chartCathegory{}
+
+
+/* LOGGING */
+div#appLog {background-color:#FFF; overflow:auto;}
