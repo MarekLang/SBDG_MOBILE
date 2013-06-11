@@ -1,7 +1,7 @@
 var App	 = {
 	"logMessages": [],
 	"logging": true,
-	"logMessage": function(message){App.logMessages.push(message);},
+	"logMessage": function(message){App.logMessages.push(message);if(App.logging) App.flushLog();},
 	"loggingTarget": "#loggingTarget",
 	"flushLog": function() {
 			var htmlStr = '<div id="appLog">';
