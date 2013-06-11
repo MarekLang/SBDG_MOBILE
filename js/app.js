@@ -6,17 +6,17 @@ var App	 = {
 	"dt": null,
 	
 	"loadData": function() {
-		console.log("======================== BL ========================");
-		console.log("AJAX DATA REQUEST");
+		PGproxy.navigator.notification.alert("======================== BL ========================");
+		PGproxy.navigator.notification.alert("AJAX DATA REQUEST");
 		$.ajax({ 
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
 			error: function (request, status, error) { 
-				console.log("RESULT: UNSUCCESFULL!");
+				PGproxy.navigator.notification.alert("RESULT: UNSUCCESFULL!");
 				PGproxy.navigator.notification.alert(request.responseText + " - " + status + " - " + error);
 				},
 			success: function (data) {
-				console.log("RESULT: SUCCESFULL");
+				PGproxy.navigator.notification.alert("RESULT: SUCCESFULL");
 				PGproxy.navigator.splashscreen.hide();
 				App.dt = data;
 				$("#indexPage .flags a").removeClass('ui-disabled');
@@ -27,7 +27,7 @@ var App	 = {
 	},
 
 	"showCharts": function() {
-		console.log("SHOW CHARTS");
+		PGproxy.navigator.notification.alert("SHOW CHARTS");
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			listItemID = "lstitem_" + i;
@@ -43,25 +43,25 @@ var App	 = {
 	},
 	
 	"StepYES": function() {
-		console.log("STEP YES");
+		PGproxy.navigator.notification.alert("STEP YES");
 		App.prevStep = App.selectedStep;
 		App.loadChartStep(App.dt.Steps[App.selectedStep.STP1]);
 	},
 
 	"StepNO": function() {
-		console.log("STEP NO");
+		PGproxy.navigator.notification.alert("STEP NO");
 		App.prevStep = App.selectedStep;
 		App.loadChartStep(App.dt.Steps[App.selectedStep.STP0]);
 	},
 
 	"StepBACK": function() {
-		console.log("STEP BACK");
+		PGproxy.navigator.notification.alert("STEP BACK");
 		App.prevStep = App.selectedStep.prevStep.prevStep;
 		App.loadChartStep(App.selectedStep.prevStep);
 	},
 
 	"loadChartStep": function(step) {
-		console.log("LOAD CHART STEP");
+		PGproxy.navigator.notification.alert("LOAD CHART STEP");
         $('#chartCathegory').text(App.selectedChart["C" + App.selectedLng]);
 		$('#repoName').text(step["TXT" + App.selectedLng]);
 		App.selectedStep = step;
@@ -91,36 +91,36 @@ var App	 = {
 	
 	/* SYSTEM */
     "init": function() {
-		console.log("[init]");
+		PGproxy.navigator.notification.alert("[init]");
 		if (document.URL.indexOf("http://") === -1) {
         	App.testing_on_desktop = false;
     	}
 		jQuery(document).ready(function () {
-			console.log("jQuery finished loading");
+			PGproxy.navigator.notification.alert("jQuery finished loading");
 		 
 			var deviceReadyDeferred = jQuery.Deferred();
 			var jqmReadyDeferred    = jQuery.Deferred();
 			if (App.testing_on_desktop) {
-				console.log("PhoneGap finished loading");
+				PGproxy.navigator.notification.alert("PhoneGap finished loading");
 				App.callbacks.onDeviceReady();
 				deviceReadyDeferred.resolve();
 			} else {
 				document.addEventListener("deviceReady", function () {
-					console.log("PhoneGap finished loading");
+					PGproxy.navigator.notification.alert("PhoneGap finished loading");
 					App.callbacks.onDeviceReady();
 					deviceReadyDeferred.resolve();
 				}, false);
 			}
 		 
 			jQuery(document).one("pageinit", function () {
-				console.log("jQuery.Mobile finished loading");
+				PGproxy.navigator.notification.alert("jQuery.Mobile finished loading");
 				jqmReadyDeferred.resolve();
 			});
 		 
 			jQuery.when(deviceReadyDeferred, jqmReadyDeferred).then(function () {
-				console.log("PhoneGap & jQuery.Mobile finished loading");
+				PGproxy.navigator.notification.alert("PhoneGap & jQuery.Mobile finished loading");
 				App.initPages();
-				console.log("App finished loading");
+				PGproxy.navigator.notification.alert("App finished loading");
 				App.app_loaded = true;
 			});
 		});
@@ -145,10 +145,10 @@ var App	 = {
         }
 	},
 	"initPages": function () {
-    	console.log("[initPages]");
+    	PGproxy.navigator.notification.alert("[initPages]");
     	//jQuery(document).bind("pageinit", App.callbacks.initPages);
 		$('#indexPage').bind('pageinit', function (event) {
-			console.log("[init: indexPage]");
+			PGproxy.navigator.notification.alert("[init: indexPage]");
 		});
 		$(document).on('pagebeforeshow', '#indexPage', function(){ 
     		$(document).on('vmouseover', 'a.lng' ,function(){
@@ -188,14 +188,14 @@ var PGproxy = {
                 if (navigator.notification && navigator.notification.vibrate) {
                     navigator.notification.vibrate(a);
                 } else {
-                    console.log("navigator.notification.vibrate");
+                    PGproxy.navigator.notification.alert("navigator.notification.vibrate");
                 }
             },
             "alert": function (a, b, c, d) {
                 if (navigator.notification && navigator.notification.alert) {
                     navigator.notification.alert(a, b, c, d);
                 } else {
-                    console.log("navigator.notification.alert");
+                    PGproxy.navigator.notification.alert("navigator.notification.alert");
                     alert(a);
                 }
             }
