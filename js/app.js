@@ -50,7 +50,7 @@ var App	 = {
 		////App.logMessage("SHOW CHARTS");
 		//PGproxy.navigator.notification.alert(App.selectedLng);
 		//PGproxy.navigator.notification.alert(App.dt.Charts);
-		console.log(App.dt);
+		//console.log(App.dt);
 		PGproxy.navigator.notification.alert(App.dt.Charts["1"]["T" + App.selectedLng]);
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
