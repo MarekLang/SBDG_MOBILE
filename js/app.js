@@ -35,8 +35,10 @@ var App	 = {
 			success: function (data) {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
-				App.dt = data;
+				
 				$("#indexPage .flags a").removeClass('ui-disabled');
+				PGproxy.navigator.notification.alert(data);
+				App.dt = data;
 				//App.logMessage('Dáta načítané');
 				//$(".ui-loader").removeClass("ui-loading");
 				if(App.logging) App.flushLog();
@@ -45,12 +47,14 @@ var App	 = {
 	},
 
 	"showCharts": function() {
+		
 		PGproxy.navigator.notification.alert('showCharts');
+		PGproxy.navigator.notification.alert(App.selectedLng);
 		////App.logMessage("SHOW CHARTS");
 		//PGproxy.navigator.notification.alert(App.selectedLng);
 		//PGproxy.navigator.notification.alert(App.dt.Charts);
 		//console.log(App.dt);
-		PGproxy.navigator.notification.alert(App.dt);
+		PGproxy.navigator.notification.alert(App['dt']);
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			
