@@ -24,7 +24,6 @@ var App	 = {
 	
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
-		PGproxy.navigator.notification.alert('START AJAX');
 		$.ajax({ 
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
@@ -36,7 +35,6 @@ var App	 = {
 			success: function (data) {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
-				PGproxy.navigator.notification.alert('AJAX SUCCES');
 				App.dt = data;
 				$("#indexPage .flags a").removeClass('ui-disabled');
 				//App.logMessage('Dáta načítané');
@@ -47,11 +45,12 @@ var App	 = {
 	},
 
 	"showCharts": function() {
+		PGproxy.navigator.notification.alert('showCharts');
 		////App.logMessage("SHOW CHARTS");
 		//PGproxy.navigator.notification.alert(App.selectedLng);
 		//PGproxy.navigator.notification.alert(App.dt.Charts);
 		//console.log(App.dt);
-		PGproxy.navigator.notification.alert(App.dt.Charts["1"]["T" + App.selectedLng]);
+		PGproxy.navigator.notification.alert(App.dt);
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			
