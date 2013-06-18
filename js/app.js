@@ -24,16 +24,19 @@ var App	 = {
 	
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
+		PGproxy.navigator.notification.alert('START AJAX');
 		$.ajax({ 
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
 			error: function (request, status, error) { 
+				PGproxy.navigator.notification.alert('AJAX ERROR - request:' + request + ' status:' + status + ' erroro:' + error);
 				////App.logMessage("RESULT: UNSUCCESFULL!");
 				//App.logMessage(request.responseText + " - " + status + " - " + error);
 				},
 			success: function (data) {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
-				PGproxy.navigator.splashscreen.hide();
+				//PGproxy.navigator.splashscreen.hide();
+				PGproxy.navigator.notification.alert('AJAX SUCCES');
 				App.dt = data;
 				$("#indexPage .flags a").removeClass('ui-disabled');
 				//App.logMessage('Dáta načítané');
