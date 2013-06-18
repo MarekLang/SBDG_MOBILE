@@ -48,6 +48,7 @@ var App	 = {
 
 	"showCharts": function() {
 		////App.logMessage("SHOW CHARTS");
+		PGproxy.navigator.notification.alert(App.selectedLng);
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			listItemID = "lstitem_" + i;
