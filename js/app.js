@@ -27,6 +27,7 @@ var App	 = {
 		$.ajax({ 
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
+			crossDomain:true,
 			dataType: 'json',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text(request.responseText);
