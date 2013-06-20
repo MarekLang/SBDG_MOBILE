@@ -32,7 +32,7 @@ var App	 = {
 			timeout: 5000,
 			dataType: 'json',
 			error: function (request, status, error) { 
-				$("#indexPage #content #flexDiv").text("start XXXX " + request.responseText + " XXXXXXXXXXXX END");
+				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
 				////App.logMessage("RESULT: UNSUCCESFULL!");
 				//App.logMessage(request.responseText + " - " + status + " - " + error);
@@ -41,6 +41,9 @@ var App	 = {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
 				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
+				
+				
+				
 				$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
 				$("#indexPage .flags a").removeClass('ui-disabled');
 				App.dt = data;
