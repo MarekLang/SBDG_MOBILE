@@ -35,7 +35,7 @@ var App	 = {
 			success: function (data) {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
-				PGproxy.navigator.notification.alert('AJAX SUCCES');
+				PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
 				$("#indexPage .flags a").removeClass('ui-disabled');
 				App.dt = data;
 				//App.logMessage('Dáta načítané');
