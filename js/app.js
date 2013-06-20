@@ -28,16 +28,15 @@ var App	 = {
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
 			error: function (request, status, error) { 
-				PGproxy.navigator.notification.alert('AJAX ERROR - request:' + request + ' status:' + status + ' erroro:' + error);
+				PGproxy.navigator.notification.alert('AJAX ERROR');
 				////App.logMessage("RESULT: UNSUCCESFULL!");
 				//App.logMessage(request.responseText + " - " + status + " - " + error);
 				},
 			success: function (data) {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
-				
+				PGproxy.navigator.notification.alert('AJAX SUCCES');
 				$("#indexPage .flags a").removeClass('ui-disabled');
-				PGproxy.navigator.notification.alert(data);
 				App.dt = data;
 				//App.logMessage('Dáta načítané');
 				//$(".ui-loader").removeClass("ui-loading");
