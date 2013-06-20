@@ -29,7 +29,7 @@ var App	 = {
 			type: 'POST', 
 			dataType: 'json',
 			error: function (request, status, error) { 
-				PGproxy.navigator.notification.alert('AJAX ERROR');
+				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
 				////App.logMessage("RESULT: UNSUCCESFULL!");
 				//App.logMessage(request.responseText + " - " + status + " - " + error);
 				},
