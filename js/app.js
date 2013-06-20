@@ -41,6 +41,8 @@ var App	 = {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
 				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
+				PGproxy.navigator.notification.alert(data);
+				PGproxy.navigator.notification.alert(data.data);
 				
 				
 				
@@ -48,8 +50,6 @@ var App	 = {
 				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
 				$("#indexPage .flags a").removeClass('ui-disabled');
 				App.dt = data.data;
-				PGproxy.navigator.notification.alert(data);
-				PGproxy.navigator.notification.alert(data.data);
 				PGproxy.navigator.notification.alert(App.dt.Charts["1"]["CSK"]);
 				//App.logMessage('Dáta načítané');
 				//$(".ui-loader").removeClass("ui-loading");
