@@ -30,7 +30,7 @@ var App	 = {
 			crossDomain:true,
 			dataType: 'json',
 			error: function (request, status, error) { 
-				$("#indexPage #content #flexDiv").text(request.responseText);
+				$("#indexPage #content #flexDiv").text("start XXXX " + request.responseText + " XXXXXXXXXXXX END");
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
 				////App.logMessage("RESULT: UNSUCCESFULL!");
 				//App.logMessage(request.responseText + " - " + status + " - " + error);
