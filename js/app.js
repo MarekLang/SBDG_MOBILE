@@ -30,7 +30,7 @@ var App	 = {
 			type: 'post', 
 			crossDomain: true,
 			timeout: 5000,
-			dataType: 'json',
+			dataType: 'text',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
@@ -42,15 +42,15 @@ var App	 = {
 				//PGproxy.navigator.splashscreen.hide();
 				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
 				PGproxy.navigator.notification.alert(data);
-				PGproxy.navigator.notification.alert(data.data);
+				//PGproxy.navigator.notification.alert(data.data);
 				
 				
 				
 				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
 				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
 				$("#indexPage .flags a").removeClass('ui-disabled');
-				App.dt = data.data;
-				PGproxy.navigator.notification.alert(App.dt.Charts["1"]["CSK"]);
+				App.dt = JSON.parse(data);
+				PGproxy.navigator.notification.alert(App.dt.data.Charts["1"]["CSK"]);
 				//App.logMessage('Dáta načítané');
 				//$(".ui-loader").removeClass("ui-loading");
 				if(App.logging) App.flushLog();
