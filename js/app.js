@@ -27,8 +27,9 @@ var App	 = {
 		$.ajax({ 
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
-			dataType: 'json',
+			dataType: 'text',
 			error: function (request, status, error) { 
+				$("#indexPage #content #flexDiv").text(request.responseText);
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
 				////App.logMessage("RESULT: UNSUCCESFULL!");
 				//App.logMessage(request.responseText + " - " + status + " - " + error);
