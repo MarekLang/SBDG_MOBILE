@@ -28,10 +28,14 @@ var App	 = {
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData",
 			//url: 'http://www.sebadiagnoza.sk/Services/testing.svc/Test',
 			type: 'post', 
+			beforeSend: function (request)
+            {
+                request.setRequestHeader("Content-Length", 0);
+            },
 			crossDomain: true,
 			timeout: 5000,
 			dataType: 'json',
-			data: '{"send":1}',
+			//data: '{"send":1}',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
