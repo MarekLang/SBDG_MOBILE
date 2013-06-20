@@ -25,7 +25,8 @@ var App	 = {
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
 		$.ajax({ 
-			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
+			//url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData",
+			url: 'http://www.sebadiagnoza.sk/Services/testing.svc/Test',
 			type: 'post', 
 			crossDomain: true,
 			timeout: 5000,
