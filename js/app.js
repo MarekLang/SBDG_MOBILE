@@ -27,7 +27,7 @@ var App	 = {
 		$.ajax({ 
 			url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData", 
 			type: 'POST', 
-			dataType: 'text',
+			dataType: 'json',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text(request.responseText);
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
@@ -37,7 +37,8 @@ var App	 = {
 			success: function (data) {
 				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
 				//PGproxy.navigator.splashscreen.hide();
-				PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
+				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
+				$("#indexPage #content #flexDiv").text('XXXXXXXX');
 				$("#indexPage .flags a").removeClass('ui-disabled');
 				App.dt = data;
 				//App.logMessage('Dáta načítané');
