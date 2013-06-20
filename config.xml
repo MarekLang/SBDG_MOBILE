@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.stalkermedia.selfdiagnosis"
 		versionCode = "11" 
-        version   = "2.0.45">
+        version   = "2.0.46">
     <name>Selfdiagnosis</name>
 
     <description>
@@ -20,4 +20,6 @@
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
+	
+	<access origin="http://www.sebadiagnoza.sk" />
 </widget>
