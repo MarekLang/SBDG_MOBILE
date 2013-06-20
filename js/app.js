@@ -30,7 +30,7 @@ var App	 = {
 			type: 'post', 
 			crossDomain: true,
 			timeout: 5000,
-			dataType: 'json',
+			dataType: 'text',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text("start XXXX " + request.responseText + " XXXXXXXXXXXX END");
 				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
