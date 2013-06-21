@@ -24,46 +24,59 @@ var App	 = {
 	
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
-		$.ajax({ 
-			//url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData",
-			//url: 'http://www.sebadiagnoza.sk/Services/testing.svc/Test',
-			url: 'http://www.sebadiagnoza.sk/Services/testing.svc/GetData',
-			type: 'GET',
-			data: { 'value': 333 },
-//			beforeSend: function (request)
-//            {
-//                request.setRequestHeader("Content-Length", 0);
-//            },
-			crossDomain: true,
-			timeout: 5000,
-			dataType: 'text',
-			//data: '{"send":1}',
-			error: function (request, status, error) { 
-				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
-				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
-				////App.logMessage("RESULT: UNSUCCESFULL!");
-				//App.logMessage(request.responseText + " - " + status + " - " + error);
-				},
-			success: function (data) {
-				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
-				//PGproxy.navigator.splashscreen.hide();
-				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
-				PGproxy.navigator.notification.alert(data);
-				$("#indexPage #content #flexDiv").text(data);
-				//PGproxy.navigator.notification.alert(data.data);
-//				
-//				
-//				
-				$("#indexPage #content #flexDiv").text('YYY'+data+'YYYY');
-//				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
-				$("#indexPage .flags a").removeClass('ui-disabled');
-				//App.dt = data.data;
-//				PGproxy.navigator.notification.alert(App.dt.data.Charts["1"]["CSK"]);
-//				//App.logMessage('Dáta načítané');
-//				//$(".ui-loader").removeClass("ui-loading");
-//				if(App.logging) App.flushLog();
-				}
-		});
+		var request = new XMLHttpRequest();
+        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData", true);
+        request.onreadystatechange = function(){//Call a function when the state changes.
+            console.log("state = " + request.readyState);
+            console.log("status = " + request.status);
+            if (request.readyState == 4) {
+                if (request.status == 200 || request.status == 0) {
+                    console.log("*" + request.responseText + "*");
+                }
+            }
+        }
+		request.send("{\"value\":45555}");
+
+//		$.ajax({ 
+//			//url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData",
+//			//url: 'http://www.sebadiagnoza.sk/Services/testing.svc/Test',
+//			url: 'http://www.sebadiagnoza.sk/Services/testing.svc/GetData',
+//			type: 'GET',
+//			data: { 'value': 333 },
+////			beforeSend: function (request)
+////            {
+////                request.setRequestHeader("Content-Length", 0);
+////            },
+//			crossDomain: true,
+//			timeout: 5000,
+//			dataType: 'text',
+//			//data: '{"send":1}',
+//			error: function (request, status, error) { 
+//				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
+//				PGproxy.navigator.notification.alert('AJAX ERROR: ' + request.responseText + " - " + status + " - " + error);
+//				////App.logMessage("RESULT: UNSUCCESFULL!");
+//				//App.logMessage(request.responseText + " - " + status + " - " + error);
+//				},
+//			success: function (data) {
+//				////App.logMessage("AJAX DATA REQUEST RESULT: SUCCESFULL - ASYNC");
+//				//PGproxy.navigator.splashscreen.hide();
+//				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
+//				PGproxy.navigator.notification.alert(data);
+//				$("#indexPage #content #flexDiv").text(data);
+//				//PGproxy.navigator.notification.alert(data.data);
+////				
+////				
+////				
+//				$("#indexPage #content #flexDiv").text('YYY'+data+'YYYY');
+////				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
+//				$("#indexPage .flags a").removeClass('ui-disabled');
+//				//App.dt = data.data;
+////				PGproxy.navigator.notification.alert(App.dt.data.Charts["1"]["CSK"]);
+////				//App.logMessage('Dáta načítané');
+////				//$(".ui-loader").removeClass("ui-loading");
+////				if(App.logging) App.flushLog();
+//				}
+//		});
 	},
 
 	"showCharts": function() {
