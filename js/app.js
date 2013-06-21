@@ -26,15 +26,17 @@ var App	 = {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
 		$.ajax({ 
 			//url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData",
-			url: 'http://www.sebadiagnoza.sk/Services/testing.svc/Test',
-			type: 'post', 
-			beforeSend: function (request)
-            {
-                request.setRequestHeader("Content-Length", 0);
-            },
+			//url: 'http://www.sebadiagnoza.sk/Services/testing.svc/Test',
+			url: 'http://www.sebadiagnoza.sk/Services/testing.svc/GetData',
+			type: 'GET',
+			data: { 'value': 333 },
+//			beforeSend: function (request)
+//            {
+//                request.setRequestHeader("Content-Length", 0);
+//            },
 			crossDomain: true,
 			timeout: 5000,
-			dataType: 'text',
+			dataType: 'json',
 			//data: '{"send":1}',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
@@ -47,6 +49,7 @@ var App	 = {
 				//PGproxy.navigator.splashscreen.hide();
 				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
 				PGproxy.navigator.notification.alert(data);
+				$("#indexPage #content #flexDiv").text(data);
 				//PGproxy.navigator.notification.alert(data.data);
 //				
 //				
