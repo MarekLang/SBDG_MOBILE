@@ -25,13 +25,14 @@ var App	 = {
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
 		var request = new XMLHttpRequest();
-        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData", true);
+        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444", true);
         request.onreadystatechange = function(){//Call a function when the state changes.
             console.log("state = " + request.readyState);
             console.log("status = " + request.status);
             if (request.readyState == 4) {
                 if (request.status == 200 || request.status == 0) {
                     console.log("*" + request.responseText + "*");
+					$("#indexPage #content #flexDiv").text(request.responseText);
                 }
             }
         }
