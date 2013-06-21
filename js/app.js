@@ -24,8 +24,11 @@ var App	 = {
 	
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
-		    $.ajax("http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444").done(function(data) {
-				$("#indexPage #content #flexDiv").text(data);
+		    $.ajax({
+				url: 'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
+				type: 'POST'
+				}).done(function(data) {
+				$("#indexPage #content #flexDiv").text(data.data.Charts[1]["TENG"]);
 //        var i, repo;
 //        $.each(data.repositories, function (i, repo) {
 //			$("#indexPage #content #flexDiv").text("");
