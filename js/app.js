@@ -24,19 +24,30 @@ var App	 = {
 	
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
-		var request = new XMLHttpRequest();
-        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444", true);
-        request.onreadystatechange = function(){//Call a function when the state changes.
-            console.log("state = " + request.readyState);
-            console.log("status = " + request.status);
-            if (request.readyState == 4) {
-                if (request.status == 200 || request.status == 0) {
-                    console.log("*" + request.responseText + "*");
-					$("#indexPage #content #flexDiv").text(request.responseText);
-                }
-            }
-        }
-		request.send("{\"value\":45555}");
+		    $.ajax("https://api.github.com/legacy/repos/search/javascript").done(function(data) {
+        var i, repo;
+        $.each(data.repositories, function (i, repo) {
+			$("#indexPage #content #flexDiv").text("");
+			$("#indexPage #content #flexDiv").append("<li><a href='repo-detail.html?owner=" + repo.username + "&name=" + repo.name + "'>"
+            + "<h4>" + repo.name + "</h4>"
+            + "<p>" + repo.username + "</p></a></li>");
+        });
+//        $('#allRepos').listview('refresh');
+    });
+	
+//		var request = new XMLHttpRequest();
+//        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444", true);
+//        request.onreadystatechange = function(){//Call a function when the state changes.
+//            console.log("state = " + request.readyState);
+//            console.log("status = " + request.status);
+//            if (request.readyState == 4) {
+//                if (request.status == 200 || request.status == 0) {
+//                    console.log("*" + request.responseText + "*");
+//					$("#indexPage #content #flexDiv").text(request.responseText);
+//                }
+//            }
+//        }
+//		request.send("{\"value\":45555}");
 
 //		$.ajax({ 
 //			//url: "http://www.sebadiagnoza.sk/Services/data.svc/GetData",
