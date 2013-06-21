@@ -24,13 +24,14 @@ var App	 = {
 	
 	"loadData": function() {
 		////App.logMessage("AJAX DATA REQUEST - ASYNC");
-		    $.ajax("https://api.github.com/legacy/repos/search/javascript").done(function(data) {
-        var i, repo;
-        $.each(data.repositories, function (i, repo) {
-			$("#indexPage #content #flexDiv").text("");
-			$("#indexPage #content #flexDiv").append("<li><a href='repo-detail.html?owner=" + repo.username + "&name=" + repo.name + "'>"
-            + "<h4>" + repo.name + "</h4>"
-            + "<p>" + repo.username + "</p></a></li>");
+		    $.ajax("http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444").done(function(data) {
+				$("#indexPage #content #flexDiv").text(data);
+//        var i, repo;
+//        $.each(data.repositories, function (i, repo) {
+//			$("#indexPage #content #flexDiv").text("");
+//			$("#indexPage #content #flexDiv").append("<li><a href='repo-detail.html?owner=" + repo.username + "&name=" + repo.name + "'>"
+//            + "<h4>" + repo.name + "</h4>"
+//            + "<p>" + repo.username + "</p></a></li>");
         });
 //        $('#allRepos').listview('refresh');
     });
