@@ -101,7 +101,21 @@ function txSuccessLoadFaves(tx,results) {
 }
 
 function loadRepos() {
-    $.ajax("https://api.github.com/legacy/repos/search/javascript").done(function(data) {
+			    $.ajax({
+				url: 'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
+				type: 'POST'
+				}).done(function(data) {
+				//$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
+					var i, repo;
+					$.each(data.Charts, function (i, repo) {
+						$("#allRepos").append("<li><a href='repo-detail.html?owner=" + repo["C"] + "'>"
+						+ "<h4>" + repo["TENG"] + "</h4>"
+						+ "<p>" + repo["STENG"] + "</p></a></li>");
+					});
+					$('#allRepos').listview('refresh');
+    			});
+			
+/*    $.ajax("https://api.github.com/legacy/repos/search/javascript").done(function(data) {
         var i, repo;
         $.each(data.repositories, function (i, repo) {
             $("#allRepos").append("<li><a href='repo-detail.html?owner=" + repo.username + "&name=" + repo.name + "'>"
@@ -109,7 +123,7 @@ function loadRepos() {
             + "<p>" + repo.username + "</p></a></li>");
         });
         $('#allRepos').listview('refresh');
-    });
+    });*/
 }
 
 $('#reposDetail').live('pageshow', function(event) {
