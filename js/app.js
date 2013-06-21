@@ -28,16 +28,10 @@ var App	 = {
 				url: 'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
 				type: 'POST'
 				}).done(function(data) {
-				$("#indexPage #content #flexDiv").text(data.data.Charts[1]["TENG"]);
-//        var i, repo;
-//        $.each(data.repositories, function (i, repo) {
-//			$("#indexPage #content #flexDiv").text("");
-//			$("#indexPage #content #flexDiv").append("<li><a href='repo-detail.html?owner=" + repo.username + "&name=" + repo.name + "'>"
-//            + "<h4>" + repo.name + "</h4>"
-//            + "<p>" + repo.username + "</p></a></li>");
-//       });
-//        $('#allRepos').listview('refresh');
-    });
+				//$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
+				App.dt = data;
+				$("#indexPage .flags a").removeClass('ui-disabled');
+    		});
 	
 //		var request = new XMLHttpRequest();
 //        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444", true);
@@ -96,14 +90,6 @@ var App	 = {
 	},
 
 	"showCharts": function() {
-		
-		PGproxy.navigator.notification.alert('showCharts');
-		PGproxy.navigator.notification.alert(App.selectedLng);
-		////App.logMessage("SHOW CHARTS");
-		//PGproxy.navigator.notification.alert(App.selectedLng);
-		//PGproxy.navigator.notification.alert(App.dt.Charts);
-		//console.log(App.dt);
-		PGproxy.navigator.notification.alert(App['dt']);
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			

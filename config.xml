@@ -2,8 +2,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.stalkermedia.selfdiagnosis"
-		versionCode = "11" 
-        version   = "2.0.70">
+		versionCode = "141" 
+        version   = "2.0.71">
     <name>Selfdiagnosis</name>
 
     <description>
