@@ -34,7 +34,7 @@ var App	 = {
             },
 			crossDomain: true,
 			timeout: 5000,
-			dataType: 'json',
+			dataType: 'text',
 			//data: '{"send":1}',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
@@ -47,14 +47,14 @@ var App	 = {
 				//PGproxy.navigator.splashscreen.hide();
 				//PGproxy.navigator.notification.alert(data.Charts["1"]["CSK"]);
 				PGproxy.navigator.notification.alert(data);
-				PGproxy.navigator.notification.alert(data.data);
+				//PGproxy.navigator.notification.alert(data.data);
 //				
 //				
 //				
 //				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
 //				//$("#indexPage #content #flexDiv").text('YYYYYYYYYYY');
 				$("#indexPage .flags a").removeClass('ui-disabled');
-				App.dt = data.data;
+				//App.dt = data.data;
 //				PGproxy.navigator.notification.alert(App.dt.data.Charts["1"]["CSK"]);
 //				//App.logMessage('Dáta načítané');
 //				//$(".ui-loader").removeClass("ui-loading");
