@@ -36,7 +36,7 @@ var App	 = {
 //            },
 			crossDomain: true,
 			timeout: 5000,
-			dataType: 'json',
+			dataType: 'text',
 			//data: '{"send":1}',
 			error: function (request, status, error) { 
 				$("#indexPage #content #flexDiv").text("start | " + request.responseText + " | END");
