@@ -28,9 +28,9 @@ var App	 = {
 				url: 'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
 				type: 'POST'
 				}).done(function(data) {
-				$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
-				//App.dt = data;
-				//$("#indexPage .flags a").removeClass('ui-disabled');
+				//$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
+				App.dt = data;
+				$("#indexPage .flags a").removeClass('ui-disabled');
     		});
 	
 //		var request = new XMLHttpRequest();
