@@ -112,6 +112,7 @@ function loadRepos() {
 						+ "<h4>" + repo["TENG"] + "</h4>"
 						+ "<p>" + repo["STENG"] + "</p></a></li>");
 					});
+					$('#allRepos').listview('create');
 					$('#allRepos').listview('refresh');
     			});
 			
