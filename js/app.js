@@ -30,6 +30,7 @@ var App	 = {
 				}).done(function(data) {
 				//$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
 				//alert('SUCCES');
+				App.logMessage(JSON.stringify(data));
 				App.logMessage("AJAX DATA REQUEST - SUCCESFULL");
 				App.dt = data;
 				App.logMessage(App.dt.Charts[1].TENG);
