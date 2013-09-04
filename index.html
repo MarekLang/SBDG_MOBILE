@@ -1,72 +1,32 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <title></title>
-  <link rel="stylesheet" href="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.css">
-  
-  
-  <!-- jQuery and jQuery Mobile -->
-  <script src="js/jquery-1.9.1.js"></script>
-  <script src="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.js"></script>
-  <script src="cordova-2.7.0.js"></script>
-
+<title>Employee Directory</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.0rc1.min.css" />
+<link rel="stylesheet" href="css/styles.css" />
 </head>
+    
 <body>
-<!-- Home -->
-<div data-role="page" id="page1">
-    <div data-theme="a" data-role="header">
-        <h3>
-            Menu
-        </h3>
-    </div>
-    <div data-role="content">
-        <a data-role="button" href="animation.html" data-transition="none">
-            Animation
-        </a>
-        <a data-role="button" href="form.html" data-transition="none">
-            Form
-        </a>
-        <a data-role="button" href="google.html" data-transition="none">
-            Google search
-        </a>
-	    <div data-theme="a" data-role="footer" data-position="fixed">
-	        <h3>
-	            Press the menu key to see a native event
-	        </h3>
-	    </div>
-    
-    </div>
+        
+<div id="employeeListPage" data-role="page" >
+
+	<div data-role="header" data-position="fixed">
+		<h1>Employee Directory</h1>
+	</div>
+
+	<div data-role="content">
+         <ul id="chartsList" data-role="listview" data-filter="true"></ul>
+    </div>		
+
 </div>
 
-<div data-role="page" id="dialogPage">
-  <div data-role="header">
-    <h2>Dialog</h2>
-  </div>
-  <div data-role="content">
-    <p>Menu key pressed</p>
-  </div>
-</div>
-
-<script type="text/javascript" charset="utf-8">
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-    
-    // Cordova is loaded and it is now safe to make calls Cordova methods
-    function onDeviceReady() {
-        document.addEventListener("menubutton", onMenuKeyDown, false);
-    }
-
-    // Handle the menu button
-    function onMenuKeyDown() {
-    	$.mobile.changePage( "#dialogPage", { role: "dialog" } );
-    }
-    
-</script>
-
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.0rc1.min.js"></script>
+<script src="js/employeelist.js"></script>
+<script src="js/employeedetails.js"></script>
+<script src="js/reportlist.js"></script>
 
 </body>
+
 </html>
