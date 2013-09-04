@@ -1,6 +1,6 @@
 var App	 = {
 	"logMessages": [],
-	"logging": true,
+	"logging": false,
 	"logMessage": function(message){App.logMessages.push(message);if(App.logging) App.flushLog();},
 	"loggingTarget": "#flexDiv",
 	"flushLog": function() {
@@ -29,10 +29,12 @@ var App	 = {
             'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
             "",
             function(data){	
-				App.logMessage("POST DATA REQUEST - SUCCESFULL");
-			    App.logMessage(data.Charts[1].TENG);
-				App.dt = data;
-				App.logMessage(App.dt.Charts[1].TENG);},
+/*				App.logMessage("POST DATA REQUEST - SUCCESFULL");
+			    App.logMessage(data.Charts[1].TENG);*/
+					App.dt = data;
+					$("#indexPage .flags a").removeClass('ui-disabled');
+				//App.logMessage(App.dt.Charts[1].TENG);
+				},
             "json"
 		);
 		
