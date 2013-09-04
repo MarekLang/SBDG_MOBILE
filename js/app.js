@@ -1,21 +1,21 @@
 var App	 = {
-//	"logMessages": [],
-//	"logging": false,
-//	"logMessage": function(message){App.logMessages.push(message);if(App.logging) App.flushLog();},
-//	"loggingTarget": "#loggingTarget",
-//	"flushLog": function() {
-//			var htmlStr = '<div id="appLog">';
-//			for(i = 1; i < App.logMessages.length; i++)
-//				{
-//					//alert(App.logMessages[i-1]);
-//					htmlStr += "<p><strong>" + i + ". </strong><span>" + App.logMessages[i-1] + "</span></p>";
-//					
-//				}
-//				htmlStr += '</div>';
-//				$("#indexPage #content #flexDiv").height($(window).height() - 80);
-//				$("#indexPage #content #flexDiv").html(htmlStr);
-//		},
-//	
+	"logMessages": [],
+	"logging": true,
+	"logMessage": function(message){App.logMessages.push(message);if(App.logging) App.flushLog();},
+	"loggingTarget": "#flexDiv",
+	"flushLog": function() {
+			var htmlStr = '<div id="appLog">';
+			for(i = 1; i < App.logMessages.length; i++)
+				{
+					alert(App.logMessages[i-1]);
+					htmlStr += "<p><strong>" + i + ". </strong><span>" + App.logMessages[i-1] + "</span></p>";
+					
+				}
+				htmlStr += '</div>';
+				$("#indexPage #content #flexDiv").height($(window).height() - 80);
+				$("#indexPage #content #flexDiv").html(htmlStr);
+		},
+	
 	"selectedLng": "ENG",
 	"selectedChart": 0,
 	"selectedStep": 0,
@@ -23,17 +23,15 @@ var App	 = {
 	"dt": null,
 	
 	"loadData": function() {
-		////App.logMessage("AJAX DATA REQUEST - ASYNC");
-		    $.ajax("https://api.github.com/legacy/repos/search/javascript").done(function(data) {
-        var i, repo;
-        $.each(data.repositories, function (i, repo) {
-			$("#indexPage #content #flexDiv").text("");
-			$("#indexPage #content #flexDiv").append("<li><a href='repo-detail.html?owner=" + repo.username + "&name=" + repo.name + "'>"
-            + "<h4>" + repo.name + "</h4>"
-            + "<p>" + repo.username + "</p></a></li>");
-        });
-//        $('#allRepos').listview('refresh');
-    });
+		App.logMessage("AJAX DATA REQUEST - ASYNC");
+		    $.ajax({
+				url: 'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
+				type: 'POST'
+				}).done(function(data) {
+				//$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
+				App.dt = data;
+				//$("#indexPage .flags a").removeClass('ui-disabled');
+    		});
 	
 //		var request = new XMLHttpRequest();
 //        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444", true);
@@ -92,14 +90,6 @@ var App	 = {
 	},
 
 	"showCharts": function() {
-		
-		PGproxy.navigator.notification.alert('showCharts');
-		PGproxy.navigator.notification.alert(App.selectedLng);
-		////App.logMessage("SHOW CHARTS");
-		//PGproxy.navigator.notification.alert(App.selectedLng);
-		//PGproxy.navigator.notification.alert(App.dt.Charts);
-		//console.log(App.dt);
-		PGproxy.navigator.notification.alert(App['dt']);
 		var i, chart, listItemID;
 		$.each(App.dt.Charts, function (i, chart) {
 			
@@ -164,36 +154,36 @@ var App	 = {
 	
 	/* SYSTEM */
     "init": function() {
-		////App.logMessage("APP START - function App.Init()");
+		App.logMessage("APP START - function App.Init()");
 		if (document.URL.indexOf("http://") === -1) {
         	App.testing_on_desktop = false;
     	}
 		jQuery(document).ready(function () {
-			////App.logMessage("jQuery finished loading");
+			App.logMessage("jQuery finished loading");
 		 
 			var deviceReadyDeferred = jQuery.Deferred();
 			var jqmReadyDeferred    = jQuery.Deferred();
 			if (App.testing_on_desktop) {
-				////App.logMessage("PhoneGap finished loading");
+				App.logMessage("PhoneGap finished loading");
 				App.callbacks.onDeviceReady();
 				deviceReadyDeferred.resolve();
 			} else {
 				document.addEventListener("deviceReady", function () {
-					////App.logMessage("PhoneGap finished loading");
+					App.logMessage("PhoneGap finished loading");
 					App.callbacks.onDeviceReady();
 					deviceReadyDeferred.resolve();
 				}, false);
 			}
 		 
 			jQuery(document).one("pageinit", function () {
-				////App.logMessage("jQuery(document).one(\"pageinit\", function ()");
+				App.logMessage("jQuery(document).one(\"pageinit\", function ()");
 				jqmReadyDeferred.resolve();
 			});
 		 
 			jQuery.when(deviceReadyDeferred, jqmReadyDeferred).then(function () {
-				////App.logMessage("PhoneGap & jQuery.Mobile finished loading");
+				App.logMessage("PhoneGap & jQuery.Mobile finished loading");
 				App.initPages();
-				////App.logMessage("App finished loading");
+				App.logMessage("App finished loading");
 				App.app_loaded = true;
 			});
 		});
@@ -203,13 +193,13 @@ var App	 = {
     "testing_on_desktop": true,
  	"callbacks": {
     	"onDeviceReady": function () {
-			////App.logMessage("onDeviceReady - EVENT FIRED");
+			App.logMessage("onDeviceReady - EVENT FIRED");
 			var mql = window.matchMedia("(orientation: portrait)");
 			// If there are matches, we're in portrait
 			if(mql.matches) {  
-				//App.logMessage('Portrait orientation');
+				App.logMessage('Portrait orientation');
 			} else {  
-				//App.logMessage('Landscape orientation');
+				App.logMessage('Landscape orientation');
 			}
 			
 			App.loadData();
@@ -218,10 +208,10 @@ var App	 = {
         }
 	},
 	"initPages": function () {
-    	////App.logMessage("[initPages]");
+    	App.logMessage("[initPages]");
     	//jQuery(document).bind("pageinit", App.callbacks.initPages);
 		$('#indexPage').bind('pageinit', function (event) {
-			////App.logMessage("[init: indexPage]");
+			App.logMessage("[init: indexPage]");
 		});
 		$(document).on('pagebeforeshow', '#indexPage', function(){ 
     		$(document).on('vmouseover', 'a.lng' ,function(){
