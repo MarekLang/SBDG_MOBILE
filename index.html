@@ -12,7 +12,7 @@
  	<link rel="stylesheet" href="css/app.css" type="text/css">
  </head>
  <body>
- 	<div data-role="page" id="login">
+<!-- 	<div data-role="page" id="login">
  		<div data-role="content">
  			<br><br><div data-role="collapsible" data-theme="b" data-content-theme="d" data-collapsed="false">
 			    <h4>Boilerplate Login Panel</h4>
@@ -24,18 +24,19 @@
 			    <label for="textinput-fc">Password:</label>
 			    <input type="text" name="textinput-fc" id="textinput-fc" placeholder="Password" value="">
 			</div>
- 			<a href="#home" data-role="button" data-transition="none">Click to Login</a>
+ 			<a href="#ChartsPage" data-role="button" data-transition="none">Click to Login</a>
 			</div>
  		</div>
- 	</div>
+ 	</div>-->
 
- 	<div data-role="page" id="home" data-add-back-btn="true">
+ 	<div data-role="page" id="ChartsPage" data-add-back-btn="true">
  		<div data-role="header">
  			<h1>Header Text</h1>
  		</div>
- 		<div data-role="content">
- 			<h3>This is the Homepage of the App</h3>
- 		</div>
+            <div data-role="content" data-iscroll="enabled" data-inset="true">
+                <ul id="Charts" data-role="listview"  data-filter="true" >
+                </ul>
+            </div>
  		<div data-role="footer" data-position="fixed">
  			<h1>&copy; Footer Text</h1>
  		</div>
