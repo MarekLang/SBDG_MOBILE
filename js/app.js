@@ -1,22 +1,30 @@
-/* Custom Javascript for this PhoneGap APP */
+(function() {
+  var device_ready = false;
+  var jqm_mobile_init = false;
 
-document.addEventListener("deviceready",onDeviceReady,false);
+  var initApp = function() {
+    if ((device_ready && jqm_mobile_init) || (jqm_mobile_init && !mobile_system)) {
+      startApp();
+    }
+  };
 
-function onDeviceReady()
-{
-  //Phonegap is ready
-  console.log("Phonegap is ready");
-}
+  var onDeviceReady = function() {
+    device_ready = true;
+    //alert('dev ready');
+    initApp();
+  };
 
-$(document).on( "mobileinit", function() {
-	console.log("Initialize jQuery Mobile Phonegap Enhancement Configurations")
-    // Make your jQuery Mobile framework configuration changes here!
-    $.mobile.allowCrossDomainPages = true;
+  var onMobileInit = function() {
     $.support.cors = true;
-    $.mobile.buttonMarkup.hoverDelay = 0;
-    $.mobile.pushStateEnabled = false;
-    $.mobile.defaultPageTransition = "none";
-});
+    $.mobile.allowCrossDomainPages = true;
+    jqm_mobile_init = true;
+    //alert('jqm ready');
+    initApp();
+  };
+
+  $(document).bind('mobileinit', onMobileInit);
+  document.addEventListener("deviceready", onDeviceReady, false);
+})();
 
 $('#ChartsPage').bind('pageinit', function(event) {
     loadRepos();
