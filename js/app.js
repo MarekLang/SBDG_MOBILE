@@ -16,10 +16,13 @@ $(document).on( "mobileinit", function() {
     $.mobile.buttonMarkup.hoverDelay = 0;
     $.mobile.pushStateEnabled = false;
     $.mobile.defaultPageTransition = "none";
-	loadRepos();
 });
 
-
+$('#ChartsPage').bind('pageinit', function(event) {
+    loadRepos();
+/*    db = window.openDatabase("repodb","0.1","GitHub Repo Db", 1000);
+    db.transaction(createDb, txError, txSuccess);*/
+});
 
 function loadRepos() {
 	$.ajax({
