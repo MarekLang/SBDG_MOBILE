@@ -1,73 +1,123 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title> jQuery Mobile Boilerplate </title>
+    <meta charset="utf-8" />
+    <title>Selfdiagnosis</title>
+    <meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!-- critical -->
+    <!-- PhoneGap, jQuery, App, jQuery.Mobile -->
+	<script src="phonegap.js"></script>
+    <script src="js/lib/jquery-1.8.3.min.js"></script>
+    <script charset="utf-8" src="js/app.js"></script>
+    <script>
+    jQuery(document).bind("mobileinit", function () {
+        console.log("configuring jqm...");
+ 		//PGproxy.navigator.notification.alert("configuring jqm...");
+        // required for "phoning home" (load external assets, etc.)
+        jQuery.support.cors = true;
+        jQuery.mobile.allowCrossDomainPages = true;
+        jQuery.mobile.ajaxEnabled = true;
+        jQuery.mobile.phonegapNavigationEnabled = true;
+        jQuery.mobile.defaultDialogTransition = "pop";
+        jQuery.mobile.defaultPageTransition = "none";
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
+        jQuery.mobile.loader.prototype.options.text = "loading";
+        jQuery.mobile.loader.prototype.options.textVisible = true;
+        jQuery.mobile.loader.prototype.options.theme = "a";
+    });
+    App.init();
+</script>
+	<script src="js/lib/jquery.mobile-1.3.1.min.js"></script>
+<!-- critical -->
 
-	<!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
-	<!-- For iPhone 4 with high-resolution Retina display: -->
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon.png">
-	<!-- For first-generation iPad: -->
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon.png">
-	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-	<!-- For nokia devices and desktop browsers : -->
-	<link rel="shortcut icon" href="favicon.ico" />
-
-	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
-	<meta http-equiv="cleartype" content="on">
-
-	<!-- jQuery Mobile CSS bits -->
-	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
-
-	<!-- if you have a custom theme, add it here -->
-	<link rel="stylesheet"  href="themes/jQuery-Mobile-Boilerplate.css" />
-
-	<!-- Custom css -->
-	<link rel="stylesheet" href="css/custom.css" />
-
-	<!-- Javascript includes -->
-	<script src="js/jquery-1.8.2-min.js"></script>
-	<script src="js/mobileinit.js"></script>
-	<script src="js/ios-orientationchange-fix.min.js"></script>
-	<script src="js/jquery.mobile-1.3.1.min.js"></script>
-	<script src="js/application.js"></script>
-	<!-- Startup Images for iDevices -->
-	<script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"images/startup-tablet-landscape.png":"images/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"images/startup-retina.png":"images/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script>
-	<!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
-	<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+<!-- plugins -->
+<!-- plugins-->
+<!-- themes -->
+    <!-- jQuery Mobile, FontAwesome & App -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.1.min.css">
+    <link rel="stylesheet" href="css/app.css" />
+<!-- /themes -->
 </head>
 <body>
-	<div data-role="page">
+    <div id="indexPage" data-role="page">
+            <header data-role="header" data-position="fixed">
+                <h1>Welcome 3.0.1</h1>
+            </header>
+           	<section id="content" data-role="content">
+			<div id="flexDiv" id="loggingTarget">
+<!--            <table class="flagsTable portrait">
+                	<tr>
+                    	<td style="height:50%">&nbsp;</td>
+                    </tr>
+					<tr>
+                    	<td>
+							<div class="flags">
+                				<a class="lng En ui-disabled" href="index.html#chartsPage" onclick="App.selectedLng = 'ENG';"></a>
+                    			<a class="lng Fr ui-disabled" href="index.html#chartsPage" onclick="App.selectedLng = 'FR';"></a>
+                    			<a class="lng Sk ui-disabled" href="index.html#chartsPage" onclick="App.selectedLng = 'SK';"></a>
+                			</div>
+                		</td>
+                    </tr>
+              	</table>-->
+                <table class="flagsTable landscape">
+                	<tr>
+                    	<td class="flagsCell">      
+                        	<div class="flags">          				
+                        		<a class="lng En ui-disabled" href="index.html#chartsPage" onclick="App.selectedLng = 'ENG';"></a>
+                    			<a class="lng Fr ui-disabled" href="index.html#chartsPage" onclick="App.selectedLng = 'FR';"></a>
+                    			<a class="lng Sk ui-disabled" href="index.html#chartsPage" onclick="App.selectedLng = 'SK';"></a>
+                            </div>
+                        </td>
+                    	<td></td>
+                    </tr>
+              	</table>
+            </div>
+			</section>
+        </div>
+        
+    <div id="chartsPage" data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h1>Select chart</h1>
+            <a href="index.html#indexPage" data-role="button" class="ui-btn-right" data-icon="home">Language</a> 
+        </div>
+        <div data-role="content">
+            <ul id="chartsList" data-role="listview"  data-filter="true">
+            </ul>
+        </div>
+    </div>
+    
+    <div id="diagnosePage" data-role="page">
 
-		<div data-role="header">
-			<h1>jQuery Mobile Boilerplate 1.2</h1>
-		</div>
-
-		<div data-role="content">
-
-			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
-				<li data-role="list-divider">Snippet Pages</li>
-				<li><a href="buttons.html">Buttons</a></li>
-				<li><a href="grids.html">Grids</a></li>
-				<li><a href="collapsibles.html">Collapsible Boxes</a></li>
-				<li><a href="collapsible-sets.html">Collapsible Sets</a></li>
-				<li><a href="forms.html">Form Elements</a></li>
-				<li><a href="lists.html">List Views</a></li>
-			</ul>
-
-		</div>
-
-		<div data-role="footer" data-theme="c">
-			<p>&copy; 2012 - jQuery Mobile Boilerplate</p>
-		</div>
-
+	<div data-role="header" data-position="fixed">
+		<h1 id="chartCathegory"></h1>
+        <a href="index.html#chartsPage" class="ui-btn-left">Charts</a>
+        <a href="index.html#indexPage" class="ui-btn-right" data-role="button" data-icon="home">Language</a>
 	</div>
+
+    <div class="page-content" data-role="content">
+        <div id="repoDetails">
+            <h3 id="repoName"></h3>
+            <p id="description"></p>
+            <p id="forks"></p>
+        </div>
+        
+        <div id="ownerDetails">
+            <img id="avatar" align="left" style="padding-right: 5px;" />
+            <h3 id="ownerName"></h3>
+        </div>
+        <button id="btnYES" data-icon="check" onClick="App.StepYES();">Áno</button>
+        <button id="btnNO" onClick="App.StepNO();" data-icon="delete" data-iconpos="right">Nie</button>
+        
+        
+        
+        
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+		<button id="btnPREV" data-icon="back" onClick="App.StepBACK();">O krok späť</button>
+	</div>
+
+</div>
+    
 </body>
 </html>

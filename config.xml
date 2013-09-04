@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.stalkermedia.selfdiagnosis"
+		versionCode = "12" 
+        version   = "3.0.1">
+    <name>Selfdiagnosis</name>
+
+    <description>
+	Description ...	
+    </description>
+
+    <author href="" email="marek.hubek@gmail.com">
+        Marek Lang
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+
+    <preference name="phonegap-version" value="2.7.0" />
+    <preference name="orientation"      value="default" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+	
+	<access origin="*" />
+</widget>
