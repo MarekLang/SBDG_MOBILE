@@ -29,7 +29,7 @@ var App	 = {
             'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
             "",
             function(data){	
-			    App.logMessage(data);
+			    App.logMessage(data.Charts[1].TENG);
 				App.logMessage("POST DATA REQUEST - SUCCESFULL");
 				App.dt = data;
 				App.logMessage(App.dt.Charts[1].TENG);},
