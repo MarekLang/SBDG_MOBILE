@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-	
-	<!-- WebApp Properties -->
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-	
-	<!-- Home screen icons -->
-	<link rel="shortcut icon" href="assets/img/icons/icon.png?v002" />
-	<link rel="apple-touch-icon" sizes="57x57" href="assets/img/icons/icon-57.png?v002" />
-	<link rel="apple-touch-icon" sizes="72x72" href="assets/img/icons/icon-72.png?v002" />
-	<link rel="apple-touch-icon" sizes="114x114" href="assets/img/icons/icon@2x.png?v002" />
-	
-	<title>jQM{BR}</title>
-	
-	<link rel="stylesheet"  href="assets/css/app.css?v002">
-	
-	<!-- // Choose Developement or Production Entry Point -->
-	<script data-main="assets/js/require.config" src="assets/require-jquery.js?v002"></script>
-	<!--<script data-main="assets/js-deploy/require.config" src="assets/require-jquery.js?v002"></script>-->
-	
-	
-</head>
-<body style="display:none">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  <link rel="stylesheet" href="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.css">
+  
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="js/jquery-1.9.1.js"></script>
+  <script src="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="cordova-2.7.0.js"></script>
 
-	<div data-role="page" id="page-index">
-		<div data-role="header" data-position="fixed" data-theme="b" data-id="app-header">
-			<h1>jQM + BackboneJS + RequireJS Boilerplate</h1>
-		</div>
-		<div data-role="content" data-scrollin="true">
-			<p>
-				<b>jQMBR</b> offers you a great boilerplate to <b>quick startup your
-				Mobile App</b>!
-			</p>
-			<ul data-role="listview" data-inset="true">
-				<li data-role="list-divider">General</li>
-				<li>
-					<a href="gmap.html">Google Map API</a>
-				</li>
-				
-				<li data-role="list-divider">BackboneJS's Views</li>
-				<li>
-					<a href="splitview.html">SplitView</a>
-				</li>
-				<li>
-					<a href="imagepaneview.html">ImagePane</a>
-				</li>
-				<li>
-					<a href="imagepaneview_splitview.html">ImagePane + SplitView</a>
-				</li>
-				<li>
-					<a href="scrollin.html">ScrollIn (Page)</a>
-				</li>
-				<li data-role="list-divider">Test Cases</li>
-				<li>
-					<a href="splitview-chain-a.html">Chained SplitViews</a>
-				</li>
-				<li>
-					<a href="#ChainedPage1">Chained Dynamic Pages</a>
-				</li>
-				
-			</ul>
-		</div>
-	</div>
-	
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Menu
+        </h3>
+    </div>
+    <div data-role="content">
+        <a data-role="button" href="animation.html" data-transition="none">
+            Animation
+        </a>
+        <a data-role="button" href="form.html" data-transition="none">
+            Form
+        </a>
+        <a data-role="button" href="google.html" data-transition="none">
+            Google search
+        </a>
+	    <div data-theme="a" data-role="footer" data-position="fixed">
+	        <h3>
+	            Press the menu key to see a native event
+	        </h3>
+	    </div>
+    
+    </div>
+</div>
+
+<div data-role="page" id="dialogPage">
+  <div data-role="header">
+    <h2>Dialog</h2>
+  </div>
+  <div data-role="content">
+    <p>Menu key pressed</p>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+    
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    function onDeviceReady() {
+        document.addEventListener("menubutton", onMenuKeyDown, false);
+    }
+
+    // Handle the menu button
+    function onMenuKeyDown() {
+    	$.mobile.changePage( "#dialogPage", { role: "dialog" } );
+    }
+    
+</script>
+
+
 </body>
 </html>
