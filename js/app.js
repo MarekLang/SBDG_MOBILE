@@ -7,7 +7,7 @@ var App	 = {
 			var htmlStr = '<div id="appLog">';
 			for(i = 1; i < App.logMessages.length; i++)
 				{
-					alert(App.logMessages[i-1]);
+					//alert(App.logMessages[i-1]);
 					htmlStr += "<p><strong>" + i + ". </strong><span>" + App.logMessages[i-1] + "</span></p>";
 					
 				}
