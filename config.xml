@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.stalkermedia.selfdiagnosis"
 		versionCode = "12" 
-        version   = "3.0.1">
+        version   = "3.0.2">
     <name>Selfdiagnosis</name>
 
     <description>
