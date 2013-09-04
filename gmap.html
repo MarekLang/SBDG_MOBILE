@@ -13,7 +13,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="assets/img/icons/icon-72.png?v002" />
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/img/icons/icon@2x.png?v002" />
 	
-	<title>jQM{BR}</title>
+	<title>Google Maps API</title>
 	
 	<link rel="stylesheet"  href="assets/css/app.css?v002">
 	
@@ -25,44 +25,14 @@
 </head>
 <body style="display:none">
 
-	<div data-role="page" id="page-index">
+	<div data-role="page" id="page-gmap">
 		<div data-role="header" data-position="fixed" data-theme="b" data-id="app-header">
-			<h1>jQM + BackboneJS + RequireJS Boilerplate</h1>
+			<a href="index.html" data-icon="arrow-l" data-direction="reverse">Back</a>
+			<h1>Google Maps API</h1>
 		</div>
-		<div data-role="content" data-scrollin="true">
-			<p>
-				<b>jQMBR</b> offers you a great boilerplate to <b>quick startup your
-				Mobile App</b>!
-			</p>
-			<ul data-role="listview" data-inset="true">
-				<li data-role="list-divider">General</li>
-				<li>
-					<a href="gmap.html">Google Map API</a>
-				</li>
-				
-				<li data-role="list-divider">BackboneJS's Views</li>
-				<li>
-					<a href="splitview.html">SplitView</a>
-				</li>
-				<li>
-					<a href="imagepaneview.html">ImagePane</a>
-				</li>
-				<li>
-					<a href="imagepaneview_splitview.html">ImagePane + SplitView</a>
-				</li>
-				<li>
-					<a href="scrollin.html">ScrollIn (Page)</a>
-				</li>
-				<li data-role="list-divider">Test Cases</li>
-				<li>
-					<a href="splitview-chain-a.html">Chained SplitViews</a>
-				</li>
-				<li>
-					<a href="#ChainedPage1">Chained Dynamic Pages</a>
-				</li>
-				
-			</ul>
-		</div>
+		
+		<!-- "data-fullsize" automagically expand page's body to fit viewport dimensions! -->
+		<div data-role="content" data-fullsize="true"></div>
 	</div>
 	
 </body>
