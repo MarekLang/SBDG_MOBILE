@@ -23,8 +23,20 @@ var App	 = {
 	"dt": null,
 	
 	"loadData": function() {
-		App.logMessage("AJAX DATA REQUEST - ASYNC");
-		    $.ajax({
+		App.logMessage("POST DATA REQUEST - ASYNC");
+		
+		$.post(
+            'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
+            "",
+            function(data){	
+			    App.logMessage(data);
+				App.logMessage("POST DATA REQUEST - SUCCESFULL");
+				App.dt = data;
+				App.logMessage(App.dt.Charts[1].TENG);},
+            "json"
+		);
+		
+/*		    $.ajax({
 				url: 'http://www.sebadiagnoza.sk/Services/data.svc/GetData',
 				type: 'POST'
 				}).done(function(data) {
@@ -35,7 +47,7 @@ var App	 = {
 				App.dt = data;
 				App.logMessage(App.dt.Charts[1].TENG);
 				//$("#indexPage .flags a").removeClass('ui-disabled');
-    		});
+    		});*/
 	
 //		var request = new XMLHttpRequest();
 //        request.open("GET", "http://www.sebadiagnoza.sk/Services/testing.svc/GetData?value=44444", true);
