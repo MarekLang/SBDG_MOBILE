@@ -29,7 +29,10 @@ var App	 = {
 				type: 'POST'
 				}).done(function(data) {
 				//$("#indexPage #content #flexDiv").text(data.Charts[1]["TENG"]);
+				//alert('SUCCES');
+				App.logMessage("AJAX DATA REQUEST - SUCCESFULL");
 				App.dt = data;
+				App.logMessage(App.dt.Charts[1].TENG);
 				//$("#indexPage .flags a").removeClass('ui-disabled');
     		});
 	
