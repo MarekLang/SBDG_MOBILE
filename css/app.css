@@ -29,6 +29,7 @@ h1 {
     text-align:center;
 }
 
+.ui-body-c, .ui-overlay-c { text-shadow:0 0 0; }
 
 /* PAGES STYLES */
 DIV#indexPage{background: center repeat-y url(../img/body_bg.png);}
@@ -68,7 +69,31 @@ DIV#indexPage DIV.flags{}
 
 
 /* DIAGNOSE PAGE */
-DIV#diagnosePage {background: center repeat-y url(../img/body_bg.png);}
+DIV#diagnosePage {background: #A0C6E7;}
+DIV#diagnosePage DIV.ui-content{padding:0px;}
+DIV#diagnosePage DIV.page-content TABLE{height:100%;width:100%;border-collapse:collapse;}
+DIV#diagnosePage DIV.page-content TABLE TD{padding:0px;}
+DIV#diagnosePage DIV.page-content TABLE TR#TopBorder TD{height:100%;}
+DIV#diagnosePage DIV.page-content TABLE TD#CathegoryCell{background:#8DB8DA;text-align:center;padding-top:10px;}
+DIV#diagnosePage DIV.page-content TABLE TD#ChartCell{background:#8DB8DA;border-bottom:1px solid #6D869E;text-align:center;}
+DIV#diagnosePage DIV.page-content TABLE TD#TextCell{background:#B6D3ED;width:100%;text-align:center;}
+
+DIV#diagnosePage DIV.page-content TABLE TR#TopBorder TD{background-position:bottom;}
+DIV#diagnosePage DIV.page-content TABLE TD#c1{background:url(../img/diagnose/bg_1.png) no-repeat;}
+DIV#diagnosePage DIV.page-content TABLE TD#c2{background:url(../img/diagnose/bg_2.png) repeat-x;}
+DIV#diagnosePage DIV.page-content TABLE TD#c3{background:url(../img/diagnose/bg_3.png) no-repeat;}
+DIV#diagnosePage DIV.page-content TABLE TD#c4{background:url(../img/diagnose/bg_4.png) repeat-y;}
+DIV#diagnosePage DIV.page-content TABLE TD#c5{background:url(../img/diagnose/bg_5.png) repeat-y;}
+DIV#diagnosePage DIV.page-content TABLE TD#c6{background:url(../img/diagnose/bg_6.png) no-repeat;}
+DIV#diagnosePage DIV.page-content TABLE TD#c7{background:url(../img/diagnose/bg_7.png) no-repeat;}
+DIV#diagnosePage DIV.page-content TABLE TD#c8{background:url(../img/diagnose/bg_8.png) no-repeat;}
+
+.navbarbutton{height:60px!Important;line-height:60px!Important;}
+.navbarbutton SPAN{padding:0px!Important;}
+.navbarbutton SPAN SPAN{font-size:20px!Important;}
+
+
+DIV#diagnosePage DIV.page-content TABLE TD#buttons{height:80px}
 DIV#diagnosePage H1#chartCathegory{}
 
 

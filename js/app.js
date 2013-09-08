@@ -143,8 +143,10 @@ var App	 = {
 
 	"loadChartStep": function(step) {
 		////App.logMessage("LOAD CHART STEP");
-        $('#chartCathegory').text(App.selectedChart["C" + App.selectedLng]);
-		$('#repoName').text(step["TXT" + App.selectedLng]);
+		$('#CathegoryName').text(App.selectedChart["C" + App.selectedLng]);
+        $('#ChartName').text(App.selectedChart["T" + App.selectedLng]);
+		$('#ChartDescription').text(App.selectedChart["ST" + App.selectedLng]);
+		$('#StepText').text(step["TXT" + App.selectedLng]);
 		App.selectedStep = step;
 		//alert(selectedStep.STP0 + ' - ' + selectedStep.STP1);
 		isfirst = ((App.dt.Steps[App.selectedChart.FIRSTSTEP] == step));
@@ -244,6 +246,7 @@ var App	 = {
 			App.showCharts();
 		});
 		$('#diagnosePage').bind('pageshow', function (event) {
+			$('#diagnosePage .ui-content').height(App.getRealContentHeight());
 			App.loadChartStep(App.dt.Steps[App.selectedChart.FIRSTSTEP], true);
 		});
 		$('#logPage').bind('pageshow', function (event) {
@@ -255,7 +258,20 @@ var App	 = {
 	},
  
     "utilities": {
-    }
+    },
+	
+	"getRealContentHeight": function () {
+		  var header = $.mobile.activePage.find("div[data-role='header']:visible");
+		  var footer = $.mobile.activePage.find("div[data-role='footer']:visible");
+		  var content = $.mobile.activePage.find("div[data-role='content']:visible:visible");
+		  var viewport_height = $(window).height();
+	  
+		  var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+		  if((content.outerHeight() - header.outerHeight() - footer.outerHeight()) <= viewport_height) {
+			  content_height -= (content.outerHeight() - content.height());
+		  } 
+		  return content_height;
+	}
 };
 
 var PGproxy = {
