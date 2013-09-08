@@ -23,10 +23,11 @@
 	
 	<access origin="*" />
 	
-	<icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
-	<icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
-	<icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
-	<icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-	<icon src="icons/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
-	<icon src="icons/android/web.png" gap:platform="android" gap:density="web" />
+	<icon src="icon.png" />
+	<icon src="img/icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="img/icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="img/icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="img/icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="img/icons/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+	<icon src="img/icons/android/web.png" gap:platform="android" gap:density="web" />
 </widget>
